@@ -18,7 +18,7 @@ public class Frame extends JFrame{
 	public void setBoard() {
 		
 		JPanel heading = new JPanel(new BorderLayout());
-		myCanvas game = new myCanvas();
+		gameBoard game = new gameBoard();
 		
 		
 		
