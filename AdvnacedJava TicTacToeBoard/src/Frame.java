@@ -18,18 +18,15 @@ public class Frame extends JFrame{
 	public void setBoard() {
 		
 		JPanel heading = new JPanel(new BorderLayout());
-		JPanel game = new JPanel(new BorderLayout());
+		myCanvas game = new myCanvas();
 		
-		Canvas c = new Canvas();
-		c.setBackground(Color.green);
-		c.size();
+		
 		
 		//game.setSize(200, 200);
-		game.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(10)));
-		game.add(c);
+		//game.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(10)));
 		
-		add(heading,BorderLayout.NORTH);
-		add(game,BorderLayout.SOUTH);
+		add(heading, BorderLayout.NORTH);
+		add(game, BorderLayout.CENTER);
 		
 		show();
 		
