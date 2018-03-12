@@ -12,6 +12,7 @@ public class Board extends JPanel implements MouseListener{
 	boolean p1;
 	String currentSymbol;
 	String temp;
+	boolean gameWon;
 	
 	public Board() {
 		
@@ -26,6 +27,7 @@ public class Board extends JPanel implements MouseListener{
 		currentSymbol = (String) JOptionPane.showInputDialog(null, "Player 1 select your symbol",
 		        "Starting Symbol", JOptionPane.QUESTION_MESSAGE, null, symbols, "X");
 		temp="";
+		gameWon = false;
 	}
 	
 	@Override
@@ -156,6 +158,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX() >= 252 && e.getX() <= 349 && e.getY() >= 151 && e.getY() <= 273 && gamePlay.isFree(1)) {
@@ -165,6 +168,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX() >= 351 && e.getX() <= 501 && e.getY() >= 150 && e.getY() <= 273 && gamePlay.isFree(2)) {
@@ -173,6 +177,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX()>=118 && e.getX()<=248 && e.getY()>= 274 &&e.getY()<=373 && gamePlay.isFree(3)) {
@@ -182,6 +187,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX() >= 252 && e.getX() <= 349 && e.getY() >= 274 && e.getY()<=373 && gamePlay.isFree(4)) {
@@ -191,6 +197,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX() >= 351 && e.getX() <= 501 && e.getY() >= 274 && e.getY()<=373 && gamePlay.isFree(5)) {
@@ -200,6 +207,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX()>=118 && e.getX()<=248 && e.getY()>= 374 &&e.getY()<=500 && gamePlay.isFree(6)) {
@@ -209,6 +217,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		else if(e.getX() >= 252 && e.getX() <= 349 && e.getY() >= 374 && e.getY()<=500 && gamePlay.isFree(7)) {
@@ -218,6 +227,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 		
@@ -228,6 +238,7 @@ public class Board extends JPanel implements MouseListener{
 			p1 = !p1;
 			repaint();
 			youWin(p);
+			draw();
 		}
 		
 	if(currentSymbol.equals("X")) {
@@ -248,8 +259,15 @@ public class Board extends JPanel implements MouseListener{
 			repaint();
 			JOptionPane.showMessageDialog(this, "Player "+player+" wins!");
 			removeMouseListener(this);
-			
+			gameWon = true;
 		}	
+	}
+	
+	public void draw() {
+		if(gamePlay.gameIsDraw() && !gameWon) {
+			JOptionPane.showMessageDialog(this, "Game Is Draw!");
+			removeMouseListener(this);
+		}
 	}
 	
 	
