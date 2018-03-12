@@ -16,7 +16,7 @@ public class gameApp extends JPanel{
 	
 	
 	public gameApp() {
-		setBorder(BorderFactory.createStrokeBorder(new BasicStroke(10)));
+		setBorder(BorderFactory.createMatteBorder(60, 10, 60, 10, Color.BLACK));
 		setBackground(Color.GREEN);
 		player1turn = true;
 		xList = new ArrayList<DrawnX>();
@@ -31,7 +31,7 @@ public class gameApp extends JPanel{
 		g.setColor(Color.RED);
 		g.setFont(new Font("Arial", Font.PLAIN, 50));
 		
-		g.drawString("           Tic Tac Toe", 0, 50);
+		g.drawString("           Tic Tac Toe", 0, 100);
 		
 		for (DrawnX thisX: xList) {
 			g.drawString("X", thisX.xCoord, thisX.yCoord);
@@ -46,7 +46,6 @@ public class gameApp extends JPanel{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			
 			
 		}
 
@@ -85,9 +84,7 @@ public class gameApp extends JPanel{
 			player1turn = ! player1turn;
 			
 		}
-		
 	}
-
 }
 
 class DrawnX {
